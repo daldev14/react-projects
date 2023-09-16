@@ -4,6 +4,7 @@
 
 </div>
 
-| #    | Proyecto     | Código                             | Web |
-| ---- | ------------ | ---------------------------------- | --- |
-| `01` | Tres en raya | [Ver](projects/game-tres-en-raya/) |     |
+| #    | Proyecto         | Código                             | Web |
+| ---- | ---------------- | ---------------------------------- | --- |
+| `01` | Tres en raya     | [Ver](projects/game-tres-en-raya/) |     |
+| `02` | Random Cat Facts | [Ver](projects/random-cat-facts/)  |     |
