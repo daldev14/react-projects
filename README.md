@@ -2,4 +2,8 @@
 
 # Proyectos de React ⚛️
 
-<div>
+</div>
+
+| #    | Proyecto     | Código                             | Web |
+| ---- | ------------ | ---------------------------------- | --- |
+| `01` | Tres en raya | [Ver](projects/game-tres-en-raya/) |     |
