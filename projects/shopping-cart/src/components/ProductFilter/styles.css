@@ -1,0 +1,11 @@
+.filter {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter__group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

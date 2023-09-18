@@ -1,0 +1,40 @@
+.product {
+  width: 100%;
+  background-color: #f5f6ff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid rgb(248, 238, 238);
+  padding-bottom: 10px;
+}
+
+.product img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
+.product__btn {
+  background-color: #0099ff;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.product__btn:hover {
+  background-color: #007acc;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.product__btn:focus,
+.product__btn:focus-visible {
+  /* box-shadow: 0 0 0 2px #0099ff83; */
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: dark) {
+  .product {
+    background-color: #1b1c25;
+    color: #ffffff;
+    border-color: #1b1c25;
+  }
+}
