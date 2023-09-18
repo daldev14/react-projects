@@ -1,0 +1,60 @@
+header,
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+main {
+  margin-top: 20px;
+}
+
+.header__title {
+  margin-top: 0;
+  font-size: clamp(24px, 5vw, 32px);
+}
+
+.header__form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.movies__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.movie__item {
+  text-align: center;
+}
+
+.movie__title {
+  font-size: 16px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.movie__title,
+.movie_year {
+  margin: 0;
+}
+
+.movie__poster {
+  margin-top: 6px;
+  border-radius: 10px;
+}
