@@ -47,10 +47,8 @@ const reducer = (state, action) => {
   return state
 }
 
-export function CartProvider({ children }) {
+const useCartReducer = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
-
-  console.log(state)
 
   const addToCart = (product) =>
     dispatch({
@@ -68,6 +66,12 @@ export function CartProvider({ children }) {
     dispatch({
       type: 'CLEAR_CART',
     })
+
+  return { state, addToCart, removeFromCart, clearCart }
+}
+
+export function CartProvider({ children }) {
+  const { state, addToCart, removeFromCart, clearCart } = useCartReducer()
 
   return (
     <CartContext.Provider
