@@ -19,42 +19,40 @@ export const CART_ACTION_TYPES = {
 export function reducer(state, action) {
   const { type: actionType, payload: actionPayload } = action
 
-  switch (actionType) {
-    case CART_ACTION_TYPES.ADD_TO_CART: {
-      const { id } = actionPayload
-      const productInCartIndex = state.findIndex((item) => item.id === id)
+  if (actionType === CART_ACTION_TYPES.ADD_TO_CART) {
+    const { id } = actionPayload
+    const productInCartIndex = state.findIndex((item) => item.id === id)
 
-      if (productInCartIndex !== -1) {
-        const newState = structuredClone(state)
-        newState[productInCartIndex].quantity += 1
+    if (productInCartIndex !== -1) {
+      const newState = structuredClone(state)
+      newState[productInCartIndex].quantity += 1
 
-        const newState2 = [
-          ...state.slice(0, productInCartIndex),
-          { ...state[productInCartIndex], quantity: state[productInCartIndex].quantity + 1 },
-          ...state.slice(productInCartIndex + 1),
-        ]
+      const newState2 = [
+        ...state.slice(0, productInCartIndex),
+        { ...state[productInCartIndex], quantity: state[productInCartIndex].quantity + 1 },
+        ...state.slice(productInCartIndex + 1),
+      ]
 
-        updateLocalStorage(newState2)
-        return newState2
-      }
-
-      const newState = [...state, { ...actionPayload, quantity: 1 }]
-      updateLocalStorage(newState)
-
-      return newState
+      updateLocalStorage(newState2)
+      return newState2
     }
 
-    case CART_ACTION_TYPES.REMOVE_FROM_CART: {
-      const { id } = actionPayload
-      const newState = state.filter((item) => item.id !== id)
-      updateLocalStorage(newState)
-      return newState
-    }
+    const newState = [...state, { ...actionPayload, quantity: 1 }]
+    updateLocalStorage(newState)
 
-    case CART_ACTION_TYPES.CLEAR_CART: {
-      updateLocalStorage([])
-      return []
-    }
+    return newState
+  }
+
+  if (actionType === CART_ACTION_TYPES.REMOVE_FROM_CART) {
+    const { id } = actionPayload
+    const newState = state.filter((item) => item.id !== id)
+    updateLocalStorage(newState)
+    return newState
+  }
+
+  if (actionType === CART_ACTION_TYPES.CLEAR_CART) {
+    updateLocalStorage([])
+    return []
   }
 
   return state
