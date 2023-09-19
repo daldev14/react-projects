@@ -26,15 +26,9 @@ export function reducer(state, action) {
     if (productInCartIndex !== -1) {
       const newState = structuredClone(state)
       newState[productInCartIndex].quantity += 1
+      updateLocalStorage(newState)
 
-      const newState2 = [
-        ...state.slice(0, productInCartIndex),
-        { ...state[productInCartIndex], quantity: state[productInCartIndex].quantity + 1 },
-        ...state.slice(productInCartIndex + 1),
-      ]
-
-      updateLocalStorage(newState2)
-      return newState2
+      return newState
     }
 
     const newState = [...state, { ...actionPayload, quantity: 1 }]
