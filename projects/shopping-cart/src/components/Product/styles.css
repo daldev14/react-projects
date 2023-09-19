@@ -27,7 +27,6 @@
 
 .product__btn:focus,
 .product__btn:focus-visible {
-  /* box-shadow: 0 0 0 2px #0099ff83; */
   outline: 4px auto -webkit-focus-ring-color;
 }
 

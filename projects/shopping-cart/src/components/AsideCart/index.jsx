@@ -5,12 +5,8 @@ import './styles.css'
 
 export default function AsideCart() {
   const [openCart, setOpenCart] = useState(false)
-  const { cart, clearCart } = useCart()
+  const { cart, addToCart, clearCart } = useCart()
   const cartCheckboxId = useId()
-
-  const handleOpenCart = () => {
-    setOpenCart(!openCart)
-  }
 
   const handleClearCart = () => {
     clearCart()
@@ -33,6 +29,9 @@ export default function AsideCart() {
         <h2 className='cart__title'>Cart</h2>
         <ul className='cart__list'>
           {cart.map((product) => {
+            const handleAddToCart = () => {
+              addToCart(product)
+            }
             return (
               <li key={product.id}>
                 <article className='cart__product'>
@@ -43,8 +42,12 @@ export default function AsideCart() {
                   />
                   <h3 className='product__title--cart'>{product.title}</h3>
                   <div className='product__quantity'>
-                    <small>Qty: 10</small>
-                    <button className='product__btn--remove'>+</button>
+                    <small>Qty: {product.quantity}</small>
+                    <button
+                      className='product__btn--remove'
+                      onClick={handleAddToCart}>
+                      +
+                    </button>
                   </div>
                 </article>
               </li>
