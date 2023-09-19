@@ -4,6 +4,12 @@ const updateLocalStorage = (state) => {
   window.localStorage.setItem('SHOPPING_CART_V1', JSON.stringify(state))
 }
 
+export const CART_ACTION_TYPES = {
+  ADD_TO_CART: 'ADD_TO_CART',
+  REMOVE_FROM_CART: 'REMOVE_FROM_CART',
+  CLEAR_CART: 'CLEAR_CART',
+}
+
 /**
  *
  * @param {*} state - initial state
@@ -14,7 +20,7 @@ export function reducer(state, action) {
   const { type: actionType, payload: actionPayload } = action
 
   switch (actionType) {
-    case 'ADD_TO_CART': {
+    case CART_ACTION_TYPES.ADD_TO_CART: {
       const { id } = actionPayload
       const productInCartIndex = state.findIndex((item) => item.id === id)
 
@@ -38,14 +44,14 @@ export function reducer(state, action) {
       return newState
     }
 
-    case 'REMOVE_FROM_CART': {
+    case CART_ACTION_TYPES.REMOVE_FROM_CART: {
       const { id } = actionPayload
       const newState = state.filter((item) => item.id !== id)
       updateLocalStorage(newState)
       return newState
     }
 
-    case 'CLEAR_CART': {
+    case CART_ACTION_TYPES.CLEAR_CART: {
       updateLocalStorage([])
       return []
     }
