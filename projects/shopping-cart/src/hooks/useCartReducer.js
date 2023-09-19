@@ -1,8 +1,8 @@
 import { useReducer } from 'react'
-import { reducer, initialState } from '../reducers/cart'
+import { reducer, cartInitialState } from '../reducers/cart'
 
 export default function useCartReducer() {
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, cartInitialState)
 
   const addToCart = (product) =>
     dispatch({
