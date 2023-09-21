@@ -4,7 +4,6 @@ import useCart from '../../hooks/useCart'
 import './styles.css'
 
 export default function AsideCart() {
-  const [openCart, setOpenCart] = useState(false)
   const { cart, addToCart, clearCart } = useCart()
   const cartCheckboxId = useId()
 
