@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "workspaces": [
+    "projects/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/daldev14/react-projects.git"
@@ -18,5 +21,13 @@
   "bugs": {
     "url": "https://github.com/daldev14/react-projects/issues"
   },
-  "homepage": "https://github.com/daldev14/react-projects#readme"
+  "homepage": "https://github.com/daldev14/react-projects#readme",
+  "devDependencies": {
+    "standard": "17.1.0"
+  },
+   "eslintConfig": {
+    "extends": [
+      "./node_modules/standard/eslintrc.json"
+    ]
+  }
 }
